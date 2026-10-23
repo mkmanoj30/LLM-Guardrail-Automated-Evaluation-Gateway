@@ -5,7 +5,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
 [![Code Style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-A high-reliability, local-first LLM inference proxy and security gateway engineered to enforce deterministic type-safety, ingress security sanitization, and real-time egress factual grounding on quantized open-source models without third-party API dependencies or recurring cloud costs.
+A local-first FastAPI proxy that sits between your application and quantized LLMs. It scrubs PII, blocks prompt injections in under 40ms, enforces strict Pydantic output schemas, and uses an egress circuit breaker to catch hallucinations before responses leave the gateway.
 
 ---
 
