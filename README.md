@@ -54,7 +54,7 @@ flowchart TD
 - **Data Validation & Contract Enforcement:** Pydantic v2
 - **Local Model Serving Engine:** GPT4All (CPU/GPU-accelerated GGUF runtime)
 - **Base Weights:** Quantized Llama-3 / Instruct models (stored locally in `%USERPROFILE%\.cache\gpt4all`)
-- **Testing & Verification:** Custom automated integration suite (`run_gateway_tests.py`), Requests
+- **Testing & Verification:** Custom automated integration suite (`run_gateway_tests.py`)
 
 ---
 
