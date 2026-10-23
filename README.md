@@ -1,6 +1,9 @@
-# LLM-Guardrail-Automated-Evaluation-Gateway
-A high-reliability, local-first LLM inference proxy and security gateway engineered to enforce deterministic type-safety, ingress security sanitization, and real-time egress factual grounding on quantized open-source models without third-party API dependencies or recurring cloud costs.
 # Enterprise LLM Guardrail & Automated Evaluation Gateway
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
+[![Code Style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 A high-reliability, local-first LLM inference proxy and security gateway engineered to enforce deterministic type-safety, ingress security sanitization, and real-time egress factual grounding on quantized open-source models without third-party API dependencies or recurring cloud costs.
 
@@ -37,6 +40,7 @@ flowchart TD
         ThresholdCheck -->|Fail| CircuitBreaker[Trigger Circuit Breaker Fallback]
         ThresholdCheck -->|Pass| Success[Deliver Structured Factual Payload]
     end
+```
 
     Reject --> Client
     CircuitBreaker --> Client
