@@ -130,7 +130,7 @@ llm-guardrail-gateway/
 ### 2. Installation
 ```powershell
 # Clone the repository
-git clone [https://github.com/your-username/llm-guardrail-gateway.git](https://github.com/your-username/llm-guardrail-gateway.git)
+git clone [[https://github.com/your-username/llm-guardrail-gateway.git](https://github.com/your-username/llm-guardrail-gateway.git)](https://github.com/mkmanoj30/LLM-Guardrail-Automated-Evaluation-Gateway.git)
 cd llm-guardrail-gateway
 
 # Create and activate virtual environment
