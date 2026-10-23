@@ -1,6 +1,8 @@
+# app/main.py
+
 from fastapi import FastAPI, HTTPException, status
 from app.config import settings
-from app.schemas import GatewayRequest, GatewayResponse
+from app.schemas import GatewayRequest, GatewayResponse, StructuredAnalysisResponse  # <--- Added StructuredAnalysisResponse
 from app.guardrails.pii_sanitizer import PIISanitizer
 from app.guardrails.injection_detector import InjectionDetector
 from app.services.llm_service import LLMService
@@ -67,6 +69,7 @@ async def process_request(request: GatewayRequest):
                 f"fell below required threshold ({settings.FAITHFULNESS_THRESHOLD})."
             )
         )
+
     return GatewayResponse(
         data=structured_output,
         is_safe=True,
