@@ -1,18 +1,32 @@
+# app/config.py
+
+import os
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
-    APP_NAME: str = "Local Llama Guardrail & Evaluation Gateway"
-    API_PORT: int = 8000
+    APP_NAME: str = "Enterprise LLM Guardrail & Intelligent Routing Gateway"
+    DEBUG: bool = False
+
+    # Models constrained under ~2-4 GB footprint
+    # Tier 1: ~1.98 GB (Q4_0 quantized 3B model)
+    MODEL_TIER_1: str = os.getenv("MODEL_TIER_1", "orca-mini-3b-gguf2-q4_0.gguf")
     
-    # Model Selection: Llama-3-8B-Instruct or Llama-3.2-3B-Instruct for faster CPU execution
-    MODEL_NAME: str = "orca-mini-3b-gguf2-q4_0.gguf"
-    MODEL_DEVICE: str = "gpu"  # Options: "cpu", "gpu", or "kompute"
-    
-    # Reliability & Quality Thresholds
+    # Tier 2: ~3.80 GB (Q4_0 quantized 7B/8B instruction model)
+    MODEL_TIER_2: str = os.getenv("MODEL_TIER_2", "mistral-7b-instruct-v0.1.Q4_0.gguf")
+
+    # Local storage path for GGUFs (defaults to ~/.cache/gpt4all if unset)
+    MODEL_PATH: str = os.getenv("MODEL_PATH", "")
+
+    # Hardware acceleration
+    DEVICE: str = os.getenv("DEVICE", "cpu")  # 'gpu' or 'cpu'
+    N_THREADS: int = int(os.getenv("N_THREADS", "4"))
+
+    # Evaluation Threshold
     FAITHFULNESS_THRESHOLD: float = 0.80
-    MAX_RETRIES: int = 2
 
     class Config:
         env_file = ".env"
+
 
 settings = Settings()

@@ -1,14 +1,16 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import List, Optional, Any, Dict
 
 # Ingress: Payload received by API
 class GatewayRequest(BaseModel):
     query: str = Field(..., min_length=3, description="User question or operational query")
     retrieval_context: List[str] = Field(
-        ..., 
-        min_items=1, 
+        default=[], 
         description="Retrieved documentation/context chunks to ground the model"
     )
+
+# Alias for backwards compatibility
+QueryRequest = GatewayRequest
 
 # Model Output: Structured schema the local model is forced to generate
 class StructuredAnalysisResponse(BaseModel):
@@ -24,3 +26,4 @@ class GatewayResponse(BaseModel):
     passed_evaluation: bool = True
     faithfulness_score: float
     blocked_reason: Optional[str] = None
+    routing_metadata: Optional[Dict[str, Any]] = None

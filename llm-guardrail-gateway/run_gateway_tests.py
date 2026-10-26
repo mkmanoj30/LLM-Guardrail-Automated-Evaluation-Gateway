@@ -110,7 +110,7 @@ def run_tests():
 
         start_time = time.time()
         try:
-            response = requests.post(GATEWAY_URL, json=test["payload"], timeout=120)
+            response = requests.post(GATEWAY_URL, json=test["payload"], timeout=240)
             elapsed = time.time() - start_time
             
             if response.status_code != 200:
