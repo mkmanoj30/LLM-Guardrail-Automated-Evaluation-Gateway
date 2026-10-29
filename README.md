@@ -170,7 +170,7 @@ pip install -r requirements.txt
 ### 3. Download Models
 
 ```powershell
-python scripts/download_models.py
+python download_models.py
 
 ```
 
